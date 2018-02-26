@@ -21,4 +21,17 @@ class PostCategoriesController
         return $response;
     }
 
+    public function getCategoryMost(){
+        $pc = new PostCategory();
+        $response = $pc->getCategoryMost();
+        return $response;
+    }
+
+    public function getCategoryByPost($id_post)
+    {
+        $pc = new PostCategory();
+        $response = $pc->getCategoryByPostId($id_post);
+        return $response;
+    }
+
 }

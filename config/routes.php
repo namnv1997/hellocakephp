@@ -45,6 +45,7 @@ Router::defaultRouteClass(DashedRoute::class);
 
 Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/admin', ['controller' => 'Admins', 'action' => 'index']);
+    $routes->connect('/frontend', ['controller' => 'Frontend', 'action' => 'index']);
 
     $routes->connect('/admin/categories', ['controller' => 'Categories', 'action' => 'categories']);
     $routes->connect('/admin/categories/getNameCategory', ['controller' => 'Categories', 'action' => 'getNameCategory']);
@@ -60,10 +61,17 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/admin/posts/add', ['controller' => 'Posts', 'action' => 'add']);
     $routes->connect('/admin/posts/edit', ['controller' => 'Posts', 'action' => 'edit']);
     $routes->connect('/admin/posts/delete', ['controller' => 'Posts', 'action' => 'delete']);
+    $routes->connect('/admin/posts/uploadFiles', ['controller' => 'Posts', 'action' => 'uploadFiles']);
+    $routes->connect('/posts/getMorePost', ['controller' => 'Posts', 'action' => 'getMorePost']);
 
     $routes->connect('/admin/comments', ['controller' => 'Comments', 'action' => 'comments']);
     $routes->connect('/admin/comments/changePaginationComment', ['controller' => 'Comments', 'action' => 'changePaginationComment']);
     $routes->connect('/admin/comments/confirmComment', ['controller' => 'Comments', 'action' => 'confirmComment']);
+
+    $routes->connect('/frontend/details', ['controller' => 'Frontend', 'action' => 'details']);
+    $routes->connect('/frontend/category-info', ['controller' => 'Frontend', 'action' => 'categoryOInfo']);
+    $routes->connect('/frontend/login', ['controller' => 'Frontend', 'action' => 'login']);
+    $routes->connect('/frontend/sign-up', ['controller' => 'Frontend', 'action' => 'signUp']);
 
 
 });

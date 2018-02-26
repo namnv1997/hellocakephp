@@ -101,4 +101,18 @@ class Category extends Entity
 
 
 
+    public function getCategoryById($id){
+
+        $categories = TableRegistry::get('Categories');
+
+        $query = $categories
+            ->find()
+            ->from('categories')
+            ->where(['id' => $id]);
+
+        return $query;
+    }
+
+
+
 }

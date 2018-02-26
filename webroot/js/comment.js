@@ -32,10 +32,10 @@ function paginationCallDataComment(page, max) {
                 }
 
                 html += '<div class="row-table">';
-                html += '<div class="column-table text-center" style="width:60px;">' + item.cmt_id + '</div>';
-                html += '<div class="column-table text-center" style="width:60px;">' + item.user_id + '</div>';
-                html += '<div class="column-table text-center" style="width:60px;">' + item.post_id + '</div>';
-                html += '<div class="column-table text-center" style="width:550px;">' + item.comment + '</div>';
+                html += '<div class="column-table text-center" style="min-width:50px;">' + item.cmt_id + '</div>';
+                html += '<div class="column-table text-center" style="min-width:50px;">' + item.user_id + '</div>';
+                html += '<div class="column-table text-center" style="min-width:50px;"">' + item.post_id + '</div>';
+                html += '<div class="column-table text-center" style="min-width:550px;">' + item.comment + '</div>';
                 html += '<div class="column-table text-center" style="width: 80px;">' +$stt+ '</div>';
                 html += $btn_option;
                 html += '</div>';

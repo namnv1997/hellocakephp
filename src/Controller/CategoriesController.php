@@ -74,6 +74,9 @@ class CategoriesController extends AppController
         exit();
     }
 
-
+    public function getCategoryById($id){
+        $category = new Category();
+        return $category->getCategoryById($id);
+    }
 
 }

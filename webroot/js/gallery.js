@@ -1,6 +1,6 @@
 
 function uploadFile(file) {
-    var url = 'app/controllers/admin/PostController.php?fnc=uploadFiles';
+    var url = 'http://localhost/hello_cakephp/admin/posts/uploadFiles';
     var xhr = new XMLHttpRequest();
     var fd = new FormData();
     xhr.open("POST", url, true);
@@ -15,7 +15,7 @@ function uploadFile(file) {
 }
 
 function uploadProfile(file) {
-    var url = 'app/controllers/admin/PostController.php?fnc=uploadFile';
+    var url = 'http://localhost/hello_cakephp/admin/posts/uploadFiles';
     var xhr = new XMLHttpRequest();
     var fd = new FormData();
     xhr.open("POST", url, true);

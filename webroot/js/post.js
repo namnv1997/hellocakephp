@@ -178,34 +178,24 @@ $(document).ready(function () {
                             content: $title + ' is exist',
                         });
                     } else {
-                        // var files = uploadfiles.files;
-                        // for (var i = 0; i < files.length; i++) {
-                        //     uploadFile(uploadfiles.files[i]);
-                        // }
-                        // $('#name_image').val(uploadfiles.files[0].name);
+                        var files = uploadfiles.files;
+                        for (var i = 0; i < files.length; i++) {
+                            uploadFile(uploadfiles.files[i]);
+                        }
+                        $('#name_image').val(uploadfiles.files[0].name);
                         $.ajax({
                             url: "http://localhost/hello_cakephp/admin/posts/add",
                             type: "post",
                             dataType: "text",
                             data: {
-                                name_image: 'test',
+                                name_image: $('#name_image').val(),
                                 title_post: $('#title_post').val(),
                                 summary_post: $('#summary_post').val(),
                                 content_post: $('#content_post').val(),
                                 status_post: $('#status_post_post').val()
                             },
                             success: function (result) {
-                                if(result==1){
-                                    $.alert({
-                                        title: 'Success',
-                                        content: ' is added'
-                                    });
-                                }else {
-                                    $.alert({
-                                        title: 'Failed',
-                                        content: 'Sorry. Please try again'
-                                    });
-                                }
+                                location.reload();
                             }
 
                         });
@@ -239,8 +229,12 @@ $(document).ready(function () {
                     $('#edit_content_post').val(item.content);
                     $('#summary_edit_post').val(item.summary);
                     $('.fr-view').append('<div>' + item.content + '</div>');
-
-                    $("div.div-select select").val(item.status);
+                    if (item.status) {
+                        $("div.div-select select").val(1);
+                    }else {
+                        $("div.div-select select").val(0);
+                    }
+                    console.log(item.image);
                     $('#gallery_edit').val(item.image);
                     $("#gallery_edit").append('<img src="' + item.image + '" height="150" width="150">');
 
@@ -346,23 +340,22 @@ $(document).ready(function () {
                             $('#name_image_edit').val(uploadfiles_edit.files[0].name);
                         }
 
+
                         $.ajax({
                             url: "http://localhost/hello_cakephp/admin/posts/edit",
                             type: "post",
                             dataType: "text",
                             data: {
-                                name_image: 'test',
+                                name_image_edit: $('#name_image_edit').val(),
                                 edit_title_post: $title_edit,
                                 summary_edit_post: $('#summary_edit_post').val(),
                                 edit_status_post:  $('#edit_status_post').val() ,
-                                edit_content_post: $content_edit
+                                edit_content_post: $content_edit,
+                                edit_id_post: $('#edit_id_post').val()
                             },
                             success: function (result) {
                                 if(result==1){
-                                    $.alert({
-                                        title: 'Success',
-                                        content: ' is added'
-                                    });
+                                   location.reload();
                                 }else {
                                     $.alert({
                                         title: 'Failed',

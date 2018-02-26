@@ -70,8 +70,8 @@ class PostsController extends AppController
         $resultSet = $post->getInfoPost($_REQUEST['post_id']);
         $list = array();
         $resultList = $category->getCategories();
-        foreach ($resultList as $row) {
-            array_push($list, array("id" => $row['id'], "name" => $row['name']));
+        foreach ($resultList as $cate) {
+            array_push($list, array("id" => $cate['id'], "name" => $cate['name']));
         }
 
         $response = array();
@@ -85,6 +85,7 @@ class PostsController extends AppController
         }
 
         echo json_encode($response);
+
         exit();
     }
 
@@ -112,5 +113,49 @@ class PostsController extends AppController
         echo 1;
         exit();
     }
+
+    public function uploadFiles(){
+        if (move_uploaded_file($_FILES['upload_file']['tmp_name'], $_SERVER['DOCUMENT_ROOT'] . '/' . 'hello_cakephp/webroot/img/' . $_FILES['upload_file']['name'])) {
+            echo $_FILES['upload_file']['name'] . " OK";
+        } else {
+            echo $_FILES['upload_file']['name'] . " KO";
+        }
+        exit;
+    }
+
+    public function getPostLastest(){
+        $post = new Post();
+        return $resultSet = $post->getPostLastest();
+    }
+
+    public function getMorePost(){
+        $response = array();
+        $post = new Post();
+        $resultSet = $post->getMorePost(3, $_REQUEST['offset']);
+        foreach ($resultSet as $row) {
+            array_push($response, array("id" => $row['id'], "title" => $row['title'], "content" => $row['content'], "date" => $row['create_date'],
+                "image" => $row['image_post'], "summary" => $row['summary']));
+        }
+        echo json_encode($response);
+        exit();
+    }
+
+    public function getPostById($id){
+        $post = new Post();
+        return $resultSet = $post->getPostById($id);
+    }
+
+    public function getPostSame($id)
+    {
+        $post = new Post();
+        return $resultSet = $post->getPostSame($id);
+    }
+
+    public function getAllPostAboutCategory($id)
+    {
+        $post = new Post();
+        return $resultSet = $post->getAllPostAboutCategory($id);
+    }
+
 
 }

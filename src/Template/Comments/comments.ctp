@@ -16,18 +16,18 @@ echo $this->Html->script('comment.js');
         <h3 class="col-sm-8">COMMENT CONFIRM</h3>
     </div>
 
-    <div class="row" style="float: left; margin-top: 20px">
+    <div>
         <div class="row-table">
-            <div class="column-table text-center" style="width:60px;">
+            <div class="column-table text-center" style="min-width:50px;">
                 <b>ID</b>
             </div>
-            <div class="column-table text-center" style="width:60px;">
+            <div class="column-table text-center" style="min-width:50px;">
                 <p><b>User Id</b></p>
             </div>
-            <div class="column-table text-center" style="width:60px;">
+            <div class="column-table text-center" style="min-width:50px;">
                 <p><b>Post Id</b></p>
             </div>
-            <div class="column-table text-center" style="width:550px;">
+            <div class="column-table text-center" style="min-width:550px;">
                 <p><b>Comment</b></p>
             </div>
             <div class="column-table text-center" style="width: 80px;">

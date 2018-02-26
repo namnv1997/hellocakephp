@@ -27,16 +27,16 @@ class CommentsController extends AppController
                 $btn_option = '<button class="btn btn-danger cmt-option" value="0" data-id="' . $row['cmt_id'] . '">Disable</button>';
             }
             echo '<div class="row-table">
-                <div class="column-table text-center" style="width:60px;">
+                <div class="column-table text-center" style="min-width:50px;">
                     <p>' . $row['cmt_id'] . '</p>
                 </div>
-                <div class="column-table text-center" style="width:60px;">
+                <div class="column-table text-center" style="min-width:50px;">
                     <p>' . $row['user_id'] . '</p>
                 </div>
-                <div class="column-table text-center" style="width:60px;">
+                <div class="column-table text-center" style="min-width:50px;">
                     <p>' . $row['post_id'] . '</p>
                 </div>
-                <div class="column-table text-center" style="width:550px;">
+                <div class="column-table text-center" style="min-width:550px;">
                     <p>' . $row['comment'] . '</p>
                 </div>
                 <div class="column-table text-center" style="width: 80px;">
